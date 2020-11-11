@@ -9,7 +9,9 @@ def get_user_by_username(db: Session, username: str):
 
 def create_user(db: Session, user: schemas.UserCreate):
     hashed_password = bcrypt.hashpw(user.password.encode('utf-8'), bcrypt.gensalt())
-    db_user = models.UserInfo(username=user.username, password=hashed_password, first_name=user.first_name, last_name=user.last_name, age=user.age)
+    # decode the hash to prevent is encoded twice
+    password_hash = hashed_password.decode('utf8')
+    db_user = models.UserInfo(username=user.username, password=password_hash, first_name=user.first_name, last_name=user.last_name, age=user.age)
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
