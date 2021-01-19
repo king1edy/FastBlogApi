@@ -1,0 +1,6 @@
+# Default ignored files
+/.vscode/
+/.vscode/settings.json
+/.idea/
+pom.xml
+/__pycache__/
