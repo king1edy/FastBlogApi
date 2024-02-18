@@ -1,4 +1,4 @@
-Blog Api with Authentication using FastApi nad postgres DB
+Blog Api with Authentication using FastApi and postgres DB
 
 ###################
 # To re-create the virtual enviroment
